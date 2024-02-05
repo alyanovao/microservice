@@ -1,0 +1,43 @@
+Клиент -> сервис авторизации
+POST api/v1/registration {login, password, email}
+
+Сервис авторизации -> сервис уведомлений
+POST api/v1/checkRegistration {email, link}
+
+Сервис уведомлений
+POST api/v1/checkRegistration {email, body, link}
+
+Клиент -> сервис авторизации
+POST api/v1/comfirmRegistration{link}
+
+Клиент -> сервис авторизации
+GET api/v1/ae?clientId={id} 302
+GET api/v1/te?clientId={id}&secretCode={secret}&code={code}
+GET api/v1/login header:bearer
+
+Клиент -> клиентский сервис
+POST api/v1/setClientInfo {name, lastName, middleName}
+
+Клиент -> клиентский сервис
+POST api/v1/addDevice {id, name, type}
+
+Клиент -> Клиентский сервис
+POST api/v1/deviceSettings {id, shcxedulerConfiguration, isEnableSendSending}
+
+Устройство -> Сервис геолокации
+POST api/v1/location {id, lon, lat, dateDime}
+
+Клиент -> Сервис геолокации
+GET api/v1/location/id {lon, at, dateTime}
+
+Клиент -> Сервис отчета
+GET api/v1/report/getlocationsByPeriod?from=dateTime&to=dateTime
+
+Сервис отчета -> сервис геолокации
+GET api/v1/locationByPeriod?from=id={id}&dateTime&to=dateTime {"locations": [id, lon, lat, dateTime]}
+
+Сервис отчета -> Клиентский сервис
+GET api/v1/deviceInfo/{deviceId}
+
+Сервис отчета -> Сервис уведомлений
+POST api/v1/report2mail {payload}
