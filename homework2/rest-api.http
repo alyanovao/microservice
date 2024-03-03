@@ -1,0 +1,9 @@
+GET http://localhost:8001/customService/hello
+Accept: application/json
+###
+
+GET http://localhost:8000/monitor/health
+Accept: application/json
+
+###
+GET http://localhost:8000/monitor
