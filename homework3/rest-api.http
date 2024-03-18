@@ -1,0 +1,24 @@
+GET http://arch.homework:80/customService/hello
+Accept: application/json
+
+<> 2024-03-19T005948.200.json
+<> 2024-03-19T005946.200.json
+###
+
+GET http://arch.homework:80/monitor
+Accept: application/json
+
+<> 2024-03-19T005951.200.json
+###
+
+GET http://arch.homework:80/monitor/health/liveness
+Accept: application/json
+
+<> 2024-03-19T010126.200.json
+<> 2024-03-19T010124.200.json
+###
+
+GET http://arch.homework:80/monitor/health/readiness
+Accept: application/json
+
+<> 2024-03-19T010128.200.json

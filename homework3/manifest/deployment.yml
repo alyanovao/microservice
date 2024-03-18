@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customservice
+  labels:
+    app: customservice
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: customservice
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: customservice
+    spec:
+      containers:
+        - name: customservice
+          image: alyanovao/customservice:1.0.1
+          ports:
+            - containerPort: 8000
+            - containerPort: 8001
+          livenessProbe:
+            httpGet:
+              path: /monitor/health/liveness
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /monitor/health/readiness
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 5
+          imagePullPolicy: IfNotPresent
