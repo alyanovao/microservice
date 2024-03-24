@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: customservice
+  labels:
+    app: customservice
+spec:
+  type: ClusterIP
+  selector:
+    app: customservice
+  ports:
+    - port: 8000
+      name: web
+      protocol: TCP
+      targetPort: 8000
+    - port: 8001
+      name: monitor
+      protocol: TCP
+      targetPort: 8001

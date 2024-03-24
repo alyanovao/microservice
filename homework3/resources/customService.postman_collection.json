@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "e53adaa0-a221-4df9-9f0f-2e6e15fa2a25",
+		"name": "customService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5052320"
+	},
+	"item": [
+		{
+			"name": "kubernate",
+			"item": [
+				{
+					"name": "health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{kubernate.customservice}}:80/health",
+							"protocol": "http",
+							"host": [
+								"{{kubernate.customservice}}"
+							],
+							"port": "80",
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redirect",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{kubernate.customservice}}:80/otusapp/alyanov/health",
+							"protocol": "http",
+							"host": [
+								"{{kubernate.customservice}}"
+							],
+							"port": "80",
+							"path": [
+								"otusapp",
+								"alyanov",
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "kubernate.customservice",
+			"value": "arch.homework"
+		}
+	]
+}
