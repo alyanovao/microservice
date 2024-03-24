@@ -10,7 +10,7 @@ import ru.aao.homework3.dto.ServiceResponse;
 public class CustomServiceImpl implements CustomService {
 
     @Override
-    public ServiceResponse getHello() {
-        return new ServiceResponse("Hello");
+    public ServiceResponse getInfo() {
+        return new ServiceResponse("OK");
     }
 }

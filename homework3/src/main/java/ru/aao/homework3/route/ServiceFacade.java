@@ -16,11 +16,11 @@ public class ServiceFacade extends RouteBuilder {
         rest("").description("camel netty rest service")
             .id("api-route")
 
-            .get("/hello")
-                .routeId("restApiHelloRoute")
+            .get("/health")
+                .routeId("restApiInfoRoute")
                 .description("get method")
                 .type(String.class)
                 .outType(ServiceResponse.class)
-                .to("direct:helloRoute");
+                .to("direct:infoRoute");
     }
 }

@@ -7,17 +7,17 @@ import ru.aao.homework3.service.CustomService;
 
 @Component
 @RequiredArgsConstructor
-public class HelloRoute extends RouteBuilder {
+public class InfoRoute extends RouteBuilder {
 
     private final CustomService service;
 
     @Override
     public void configure() {
         errorHandler(noErrorHandler());
-        from("direct:helloRoute")
-            .routeId("HelloRouteId")
-            .log("route hello")
-            .bean(service, "getHello")
+        from("direct:infoRoute")
+            .routeId("InfoRouteId")
+            .log("route info")
+            .bean(service, "getInfo")
         .end();
     }
 }

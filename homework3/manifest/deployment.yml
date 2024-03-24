@@ -26,12 +26,12 @@ spec:
             httpGet:
               path: /monitor/health/liveness
               port: 8000
-            initialDelaySeconds: 15
+            initialDelaySeconds: 30
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /monitor/health/readiness
               port: 8000
-            initialDelaySeconds: 15
+            initialDelaySeconds: 30
             periodSeconds: 5
           imagePullPolicy: IfNotPresent

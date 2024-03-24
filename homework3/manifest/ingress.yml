@@ -2,21 +2,23 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: customservice
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   ingressClassName: nginx
   rules:
-    - host:
-    - http:
+    - host: arch.homework
+      http:
         paths:
-          - path: /monitor
-            pathType: Prefix
+          - path: /otusapp/alyanov/(.+)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: customservice
                 port:
-                  number: 8000
-          - path: /customService
-            pathType: Prefix
+                  number: 8001
+          - path: /(.+)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: customservice
