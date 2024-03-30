@@ -3,22 +3,22 @@ kind: Ingress
 metadata:
   name: customservice
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /health
 spec:
   ingressClassName: nginx
   rules:
     - host: arch.homework
       http:
         paths:
-          - path: /otusapp/alyanov/(.+)
-            pathType: ImplementationSpecific
+          - path: /otusapp/alyanov
+            pathType: Prefix
             backend:
               service:
                 name: customservice
                 port:
                   number: 8001
-          - path: /(.+)
-            pathType: ImplementationSpecific
+          - path: /health
+            pathType: Prefix
             backend:
               service:
                 name: customservice
