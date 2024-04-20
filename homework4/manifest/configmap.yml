@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-api-configmap
+  labels:
+    app: user-api-configmap
+data:
+  java-opts: "-Xms128m-Xmx128m"
+  dabasource-url: "jdbc:postgresql://host.docker.internal:5432/postgres"
