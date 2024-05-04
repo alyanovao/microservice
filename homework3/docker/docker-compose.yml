@@ -1,0 +1,17 @@
+version: '3'
+services:
+  customService:
+    image: alyanovao/customservice:1.0.1
+    container_name: "customService"
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    environment:
+      - JAVA_OPTS=-Xms128m-Xmx128m
+      - MANAGEMENT_ENDPOINT_HEALTH_PROBES_ENABLED=true
+      - MANAGEMENT_HEALTH_LIVENESSSTATE_ENABLED=true
+      - MANAGEMENT_HEALTH_READINESSSTATE_ENABLED=true
+    networks:
+      - network
+networks:
+  network:
