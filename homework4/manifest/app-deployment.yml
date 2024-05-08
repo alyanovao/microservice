@@ -30,7 +30,7 @@ spec:
             - name: SPRING_DATASOURCE_URL
               valueFrom:
                 configMapKeyRef:
-                  key: dabasource-url
+                  key: datasource-url
                   name: user-api-configmap
             - name: SPRING_DATASOURCE_HIKARI_USERNAME
               valueFrom:

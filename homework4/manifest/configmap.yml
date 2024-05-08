@@ -6,4 +6,4 @@ metadata:
     app: user-api-configmap
 data:
   java-opts: "-Xms128m-Xmx128m"
-  dabasource-url: "jdbc:postgresql://host.docker.internal:5432/postgres"
+  datasource-url: "jdbc:postgresql://postgres-db-postgresql.postgres.svc.cluster.local:5432/postgres"

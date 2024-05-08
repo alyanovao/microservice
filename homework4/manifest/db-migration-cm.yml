@@ -5,4 +5,4 @@ metadata:
   labels:
     app: db-migration-cm
 data:
-  database-host: "host.docker.internal"
+  database-host: "postgres-db-postgresql.postgres.svc.cluster.local"
