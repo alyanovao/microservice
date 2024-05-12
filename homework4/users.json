@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "fdaaf0f4-912d-4d26-bcc0-993249626a02",
+		"name": "users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5052320"
+	},
+	"item": [
+		{
+			"name": "kubernate",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{kubernate.customservice}}:80/user/1",
+							"protocol": "http",
+							"host": [
+								"{{kubernate.customservice}}"
+							],
+							"port": "80",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"1\",\r\n    \"firstName\": \"2\",\r\n    \"lastName\" : \"3\",\r\n    \"email\": \"virtualEmail@gmail.com\",\r\n    \"phone\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{kubernate.customservice}}:80/user",
+							"protocol": "http",
+							"host": [
+								"{{kubernate.customservice}}"
+							],
+							"port": "80",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"2\",\r\n    \"firstName\": \"3\",\r\n    \"lastName\" : \"4\",\r\n    \"email\": \"virtualEmail@gmail.com\",\r\n    \"phone\": \"123454321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{kubernate.customservice}}:80/user/1",
+							"protocol": "http",
+							"host": [
+								"{{kubernate.customservice}}"
+							],
+							"port": "80",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{kubernate.customservice}}:80/user/1",
+							"protocol": "http",
+							"host": [
+								"{{kubernate.customservice}}"
+							],
+							"port": "80",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/user/1",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"1\",\r\n    \"firstName\": \"2\",\r\n    \"lastName\" : \"3\",\r\n    \"email\": \"virtualEmail@gmail.com\",\r\n    \"phone\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"2\",\r\n    \"firstName\": \"3\",\r\n    \"lastName\" : \"4\",\r\n    \"email\": \"virtualEmail@gmail.com\",\r\n    \"phone\": \"123454321\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "kubernate.customservice",
+			"value": "arch.homework"
+		}
+	]
+}
