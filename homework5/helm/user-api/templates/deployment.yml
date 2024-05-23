@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "user-api.fullname" . }}-deployment
+  labels:
+    {{- include "user-api.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.deployment.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "user-api.selectorLabels" . | nindent 6 }}
+  strategy:
+    type: {{ .Values.deployment.strategy }}
+  template:
+    metadata:
+      labels:
+        {{- include "user-api.labels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ include "user-api.fullname" . }}
+          image: {{ .Values.deployment.repository }}:{{ .Values.deployment.version }}
+          ports:
+            - containerPort: {{ .Values.deployment.port }}
+          env:
+            - name: JAVA_OPTS
+              value: {{ .Values.userApiConfig.javaOpts }}
+            - name: SPRING_DATASOURCE_URL
+              value: {{ .Values.userApiConfig.url }}
+            - name: SPRING_DATASOURCE_HIKARI_USERNAME
+              value: {{ .Values.secretDatabase.username }}
+            - name: SPRING_DATASOURCE_HIKARI_PASSWORD
+              value: {{ .Values.secretDatabase.password }}

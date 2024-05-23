@@ -1,34 +1,25 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: db-migrate-job
+  name: {{ include "user-api.fullname" . }}-db-migrate-job
 spec:
   template:
     metadata:
-      name: db-job
+      name: {{ include "user-api.fullname" . }}-db-job
       labels:
         app: init-db-table
     spec:
-      restartPolicy: Never
+      restartPolicy: {{ .Values.migration.restartPolicy }}
       containers:
-        - name: create-table
+        - name: {{ .Values.migration.containerName }}
           env:
             - name: DATABASE_URL
-              valueFrom:
-                configMapKeyRef:
-                  name: db-migration-cm
-                  key: database-host
+              value: {{ .Values.migration.host }}
             - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: secret-db
-                  key: password
+              value: {{ .Values.secretDatabase.password }}
             - name: DB_USER
-              valueFrom:
-                secretKeyRef:
-                  name: secret-db
-                  key: username
-          image: docker.io/bitnami/postgresql:14.4.0-debian-11-r13
+              value: {{ .Values.secretDatabase.username }}
+          image: {{ .Values.migration.image }}
           command:
             - sh
             - "-c"
@@ -43,4 +34,4 @@ spec:
               phone       varchar(15)
               );
               EOF
-  backoffLimit: 0
+  backoffLimit: {{ .Values.migration.backOffLimit }}

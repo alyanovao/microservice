@@ -1,41 +1,64 @@
 ## Сервис для тестирования навыка сборки контейнера приложения
 
-## Сборка проекта
+# Установка Приложения
+## Установка чарта базы данных
+## Создание alias
 ```shell
-mvn clean install
- ```
-
-## Сборка образа
-```shell
-docker build -t user-api:1.0.0 .
+New-Alias -Name "k" kubectl
 ```
 
-## Установка тега
+## Создание пространства
 ```shell
-docker tag user-api:1.0.0 alyanovao/user-api:1.0.0
+k create namespace postgres
 ```
 
-## Подключение к удаленному репозиторию
+## Создаем секрет
 ```shell
-docker login docker.io
+k apply -f ./db/secret.yml
 ```
 
-## деплой образа
+## Создание базы данных
 ```shell
-docker push alyanovao/user-api:1.0.0
+helm install postgres-db oci://registry-1.docker.io/bitnamicharts/postgresql --namespace postgres --create-namespace --set global.postgresql.auth.postgresPassword="postgres"
 ```
-
-## Запуск контейнера
-```shell
-docker run --name service -it -d -p 8000:8000 -e JAVA_OPTS='Xms128m -Xmx128m' user-api:1.0.0
-```
-
-## Запуск compose базы
-```shell
-docker-compose -p postgress up -d
-```
-
 ## Запуск проекта
 ```shell
-kubectl apply -d .
+helm install user-api ./helm/user-api --atomic
+```
+
+### Запуск теста helm
+```shell
+helm install --dry-run user-api ./helm/user-api
+```
+
+```shell
+minikube addons enable ingress
+```
+
+```shell
+kubectl create namespace m && helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx/ && helm repo update && helm install nginx ingress-nginx/ingress-nginx --namespace m -f ./manifest/nginx-ingress.yaml
+```
+
+### Удаление сервиса
+## Удаляем helm
+```shell
+helm -n postgres uninstall postgres-db
+```
+
+## Удаляем helm
+```shell
+helm uninstall user-api
+```
+
+```shell
+k delete pvc --namespace postgres data-postgres-db-postgresql-0
+```
+
+## Удаляем секрет
+```shell
+k delete secret secret-db
+```
+
+```shell
+k delete namespace postgres
 ```
