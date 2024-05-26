@@ -5,7 +5,7 @@
 
     <groupId>ru.aao</groupId>
     <artifactId>homework5</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>homework4</name>
     <description>homework5</description>
     <packaging>pom</packaging>

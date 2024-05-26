@@ -11,10 +11,10 @@ userApiConfig:
   url: "jdbc:postgresql://postgres-db-postgresql.postgres.svc.cluster.local:5432/postgres"
 
 deployment:
-  replicaCount: 1
+  replicaCount: 2
   strategy: Recreate
   repository: "alyanovao/user-api"
-  version: "1.0.0"
+  version: "1.0.3-snapshot"
   port: 8080
 
 service:
@@ -22,11 +22,16 @@ service:
   port: 8080
   targetPort: 8080
 
+serviceMonitor:
+  scrapePeriod: 5s
+  path: actuator/prometheus
+
 
 ingress:
   host: arch.homework
   path: "/user"
   pathType: "Prefix"
+  actuatorPath: "/actuator"
 
 migration:
   restartPolicy: Never

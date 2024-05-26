@@ -14,3 +14,10 @@ spec:
                 name: {{ include "user-api.fullname" . }}-service
                 port:
                   number: {{ .Values.service.targetPort }}
+          - path: {{ .Values.ingress.actuatorPath }}
+            pathType: {{ .Values.ingress.pathType }}
+            backend:
+              service:
+                name: {{ include "user-api.fullname" . }}-service
+                port:
+                  number: {{ .Values.service.targetPort }}

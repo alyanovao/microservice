@@ -1,0 +1,46 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrate-job
+spec:
+  template:
+    metadata:
+      name: db-job
+      labels:
+        app: init-db-table
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: create-table
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: db-migration-cm
+                  key: database-host
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-db
+                  key: password
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: secret-db
+                  key: username
+          image: docker.io/bitnami/postgresql:14.4.0-debian-11-r13
+          command:
+            - sh
+            - "-c"
+            - |
+              PGPASSWORD=$DB_PASSWORD psql -d postgres -U $DB_USER -h $DATABASE_URL  <<'EOF'
+              create table users (
+              id serial   primary key,
+              username    varchar(30) not null,
+              firstname   varchar(30) not null,
+              lastname    varchar(30) not null,
+              email       varchar(30),
+              phone       varchar(15)
+              );
+              EOF
+  backoffLimit: 0

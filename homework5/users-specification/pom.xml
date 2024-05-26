@@ -5,12 +5,14 @@
 
     <groupId>ru.aao</groupId>
     <artifactId>users-specification</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>users-specification</name>
     <description>users-specification</description>
 
     <properties>
         <java.version>21</java.version>
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
         <openapi-version>7.1.0</openapi-version>
         <maven-compiler-version>3.13.0</maven-compiler-version>
         <maven-version>3.1.1</maven-version>
@@ -101,8 +103,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-version}</version>
                 <configuration>
-                    <source>${java-version}</source>
-                    <target>${java-version}</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             <plugin>

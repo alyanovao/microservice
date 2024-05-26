@@ -30,3 +30,6 @@ spec:
               value: {{ .Values.secretDatabase.username }}
             - name: SPRING_DATASOURCE_HIKARI_PASSWORD
               value: {{ .Values.secretDatabase.password }}
+          resources:
+            limits:
+              memory: 512Mi

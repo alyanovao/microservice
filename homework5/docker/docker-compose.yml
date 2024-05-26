@@ -11,5 +11,16 @@ services:
       - "5432:5432"
     networks:
       - network
+  user-api:
+    image: alyanovao/user-api:1.0.1
+    container_name: user-api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+      SPRING_DATASOURCE_HIKARI_USERNAME: postgres
+      SPRING_DATASOURCE_HIKARI_PASSWORD: postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - network
 networks:
   network:
