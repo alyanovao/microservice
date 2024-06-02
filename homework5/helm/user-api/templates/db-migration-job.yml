@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "user-api.fullname" . }}-db-migrate-job
+spec:
+  template:
+    metadata:
+      name: {{ include "user-api.fullname" . }}-db-job
+      labels:
+        app: init-db-table
+    spec:
+      restartPolicy: {{ .Values.migration.restartPolicy }}
+      containers:
+        - name: {{ .Values.migration.containerName }}
+          env:
+            - name: DATABASE_URL
+              value: {{ .Values.migration.host }}
+            - name: DB_PASSWORD
+              value: {{ .Values.secretDatabase.password }}
+            - name: DB_USER
+              value: {{ .Values.secretDatabase.username }}
+          image: {{ .Values.migration.image }}
+          command:
+            - sh
+            - "-c"
+            - |
+              PGPASSWORD=$DB_PASSWORD psql -d postgres -U $DB_USER -h $DATABASE_URL  <<'EOF'
+              create table users (
+              id serial   primary key,
+              username    varchar(30) not null,
+              firstname   varchar(30) not null,
+              lastname    varchar(30) not null,
+              email       varchar(30),
+              phone       varchar(15)
+              );
+              EOF
+  backoffLimit: {{ .Values.migration.backOffLimit }}

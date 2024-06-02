@@ -1,0 +1,41 @@
+# Default values for user-api.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+secretDatabase:
+  username: "postgres"
+  password: "postgres"
+
+userApiConfig:
+  javaOpts: "-Xms128m-Xmx128m"
+  url: "jdbc:postgresql://postgres-db-postgresql.postgres.svc.cluster.local:5432/postgres"
+
+deployment:
+  replicaCount: 2
+  strategy: Recreate
+  repository: "alyanovao/user-api"
+  version: "1.0.3-snapshot"
+  port: 8080
+
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+
+serviceMonitor:
+  scrapePeriod: 5s
+  path: actuator/prometheus
+
+
+ingress:
+  host: arch.homework
+  path: "/user"
+  pathType: "Prefix"
+  actuatorPath: "/actuator"
+
+migration:
+  restartPolicy: Never
+  containerName: create-table
+  host: "postgres-db-postgresql.postgres.svc.cluster.local"
+  image: docker.io/bitnami/postgresql:14.4.0-debian-11-r13
+  backOffLimit: 0
