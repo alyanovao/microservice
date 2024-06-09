@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userservice
+  labels:
+    app: user-security-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-security-app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: user-security-app
+    spec:
+      containers:
+        - name: userservice
+          image: alyanovao/userservice:1.0.1
+          ports:
+            - containerPort: 8000
+          imagePullPolicy: Always
+          env:
+            - name: JAVA_OPTS
+              valueFrom:
+                configMapKeyRef:
+                  name: user-security-app-configmap
+                  key: java-opts
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: datasource-url
+                  name: user-security-app-configmap
+            - name: SPRING_DATASOURCE_HIKARI_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: secret-db
+            - name: SPRING_DATASOURCE_HIKARI_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: secret-db
