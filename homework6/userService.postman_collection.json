@@ -1,0 +1,1148 @@
+{
+	"info": {
+		"_postman_id": "4a3d21c1-a4f4-4f5f-a937-e2533c696ad8",
+		"name": "userService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5052320"
+	},
+	"item": [
+		{
+			"name": "userService",
+			"item": [
+				{
+					"name": "me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "1",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://{{localhost}}/users/me",
+							"protocol": "http",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "1"
+							},
+							{
+								"key": "X-First-Name",
+								"value": "Vasya"
+							},
+							{
+								"key": "X-last-Name",
+								"value": "Ivanov"
+							},
+							{
+								"key": "X-Email",
+								"value": "Vasily@gmail.com"
+							}
+						],
+						"url": {
+							"raw": "http://{{localhost}}/users/me",
+							"protocol": "http",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "1"
+							},
+							{
+								"key": "X-First-Name",
+								"value": "Vasya"
+							},
+							{
+								"key": "X-Last-Name",
+								"value": "Ivanov"
+							},
+							{
+								"key": "X-Email",
+								"value": "test1@gmail.com"
+							}
+						],
+						"url": {
+							"raw": "http://{{localhost}}/users/1",
+							"protocol": "http",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "1"
+							},
+							{
+								"key": "X-First-Name",
+								"value": "Vasya"
+							},
+							{
+								"key": "X-Last-Name",
+								"value": "Ivanov"
+							},
+							{
+								"key": "X-Email",
+								"value": "test"
+							}
+						],
+						"url": {
+							"raw": "http://{{localhost}}/users/1",
+							"protocol": "http",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "userAuth",
+			"item": [
+				{
+					"name": "sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{localhost_auth}}/sessions",
+							"protocol": "http",
+							"host": [
+								"{{localhost_auth}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"login\": \"user\",\r\n    \"password\": \"password\",\r\n    \"age\": 38,\r\n    \"firstName\": \"Vasya\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{localhost_auth}}/register",
+							"protocol": "http",
+							"host": [
+								"{{localhost_auth}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\":\"user\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{localhost_auth}}/login",
+							"protocol": "http",
+							"host": [
+								"{{localhost_auth}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\":\"user\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{localhost_auth}}/logout",
+							"protocol": "http",
+							"host": [
+								"{{localhost_auth}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "singin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\":\"user\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{localhost_auth}}/singin",
+							"protocol": "http",
+							"host": [
+								"{{localhost_auth}}"
+							],
+							"path": [
+								"singin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{localhost_auth}}/auth",
+							"protocol": "http",
+							"host": [
+								"{{localhost_auth}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "kubernate",
+			"item": [
+				{
+					"name": "me",
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"removeRefererHeaderOnRedirect": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "1",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://{{kubernate}}/users/me",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "1",
+								"disabled": true
+							},
+							{
+								"key": "X-First-Name",
+								"value": "Vasya",
+								"disabled": true
+							},
+							{
+								"key": "X-last-Name",
+								"value": "Ivanov",
+								"disabled": true
+							},
+							{
+								"key": "X-Email",
+								"value": "Vasily@gmail.com",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://{{kubernate}}/users/me",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "1"
+							},
+							{
+								"key": "X-First-Name",
+								"value": "Vasya"
+							},
+							{
+								"key": "X-Last-Name",
+								"value": "Ivanov"
+							},
+							{
+								"key": "X-Email",
+								"value": "test1@gmail.com"
+							}
+						],
+						"url": {
+							"raw": "http://{{kubernate}}/users/1",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "1"
+							},
+							{
+								"key": "X-First-Name",
+								"value": "Vasya"
+							},
+							{
+								"key": "X-Last-Name",
+								"value": "Ivanov"
+							},
+							{
+								"key": "X-Email",
+								"value": "test"
+							}
+						],
+						"url": {
+							"raw": "http://{{kubernate}}/users/1",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "1"
+							},
+							{
+								"key": "X-First-Name",
+								"value": "Vasya"
+							},
+							{
+								"key": "X-Last-Name",
+								"value": "Ivanov"
+							},
+							{
+								"key": "X-Email",
+								"value": "test"
+							}
+						],
+						"url": {
+							"raw": "http://{{kubernate}}/users/me",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sessions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{kubernate}}/sessions",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"login\": \"user\",\r\n    \"password\": \"password\",\r\n    \"age\": 38,\r\n    \"firstName\": \"Vasya\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{kubernate}}/register",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\":\"user\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{kubernate}}/login",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\":\"user\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{kubernate}}/logout",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\":\"user\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{kubernate}}/signin",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{kubernate}}/auth",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Регистрация пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData).to.have.property('id');",
+									"  pm.expect(responseData).to.have.property('login');",
+									"  pm.expect(responseData).to.have.property('firstName');",
+									"  pm.expect(responseData).to.have.property('lastName');",
+									"  pm.expect(responseData).to.have.property('email');",
+									"  ",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 400ms\", function () {",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"login\": \"user\",\r\n    \"password\": \"password\",\r\n    \"age\": 38,\r\n    \"firstName\": \"Vasya\",\r\n    \"lastName\": \"Ivanov\",\r\n    \"email\": \"Vasily@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{kubernate}}/register",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение данных о текущем пользователе без логина",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code >= 300 && pm.response.code < 400) {\r",
+									"  // Get the 'Location' header from the response headers\r",
+									"  var redirectUrl = pm.response.headers.get('Location');\r",
+									"  console.log('Redirected URL: ', redirectUrl);\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"  pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is within an acceptable range\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response has the required fields\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    \r",
+									"    pm.expect(responseData).contain(\"Please login\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://{{kubernate}}/users/me",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вход пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response has the required fields\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    \r",
+									"    pm.expect(responseData).contain(\"Login success\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"user\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{kubernate}}/login",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление данных текущего пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is within the acceptable range\", function () {",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the response schema for required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData).to.have.property('id');",
+									"    pm.expect(responseData).to.have.property('login');",
+									"    pm.expect(responseData).to.have.property('email');",
+									"    pm.expect(responseData).to.have.property('firstName');",
+									"    pm.expect(responseData).to.have.property('lastName');",
+									"    pm.expect(responseData).to.have.property('age');",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://{{kubernate}}/users/me",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение данных о текущем пользователе",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{kubernate}}/users/me",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Выход пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 500ms\", function () {",
+									"  pm.expect(pm.response.responseTime).to.be.below(500);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.text();",
+									"    ",
+									"    pm.expect(responseData).contain(\"user logout\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{kubernate}}/logout",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Регистрация пользователя №2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"user2\",\r\n    \"password\": \"password2\",\r\n    \"email\": \"useremail\",\r\n    \"firstName\": \"Vyacheslav\",\r\n    \"lastName\": \"Gromov\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{kubernate}}/register",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Вход пользователя №2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response has the required fields\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    \r",
+									"    pm.expect(responseData).contain(\"Login success\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is within the acceptable range\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"user2\",\r\n    \"password\": \"password2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{kubernate}}/login",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение данных о другом пользователе",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 401\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(401);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the response has the expected content type - application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is within the acceptable range\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{kubernate}}/users/1",
+							"protocol": "http",
+							"host": [
+								"{{kubernate}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "kubernate",
+			"value": "arch.homework:80",
+			"type": "string"
+		},
+		{
+			"key": "localhost_auth",
+			"value": "localhost:8088",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,52 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: userauth
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: arch.homework
+      http:
+        paths:
+          - path: /sessions
+            pathType: Prefix
+            backend:
+              service:
+                name: userauth
+                port:
+                  number: 8088
+          - path: /register
+            pathType: Prefix
+            backend:
+              service:
+                name: userauth
+                port:
+                  number: 8088
+          - path: /login
+            pathType: Prefix
+            backend:
+              service:
+                name: userauth
+                port:
+                  number: 8088
+          - path: /logout
+            pathType: Prefix
+            backend:
+              service:
+                name: userauth
+                port:
+                  number: 8088
+          - path: /signin
+            pathType: Prefix
+            backend:
+              service:
+                name: userauth
+                port:
+                  number: 8088
+          - path: /auth
+            pathType: Prefix
+            backend:
+              service:
+                name: userauth
+                port:
+                  number: 8088

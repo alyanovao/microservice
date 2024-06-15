@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  userservice:
+    image: alyanovao/userservice:1.0.1
+    container_name: userservice
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - network
+  userauth:
+    image: alyanovao/userauth:1.0.1
+    container_name: userauth
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+    ports:
+      - "8088:8088"
+    networks:
+      - network
+networks:
+  network:
