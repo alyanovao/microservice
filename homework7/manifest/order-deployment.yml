@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: userservice
+  name: orderservice
   labels:
     app: order-microservice-app
 spec:
@@ -17,10 +17,10 @@ spec:
         app: order-microservice-app
     spec:
       containers:
-        - name: userservice
-          image: alyanovao/userservice:1.0.1
+        - name: orderservice
+          image: alyanovao/orderservice:1.0.1
           ports:
-            - containerPort: 8000
+            - containerPort: 8008
           imagePullPolicy: Always
           env:
             - name: JAVA_OPTS
@@ -36,10 +36,14 @@ spec:
             - name: SPRING_DATASOURCE_HIKARI_USERNAME
               valueFrom:
                 secretKeyRef:
-                  key: username
+                  key: order-username
                   name: secret-db
             - name: SPRING_DATASOURCE_HIKARI_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: password
+                  key: order-password
                   name: secret-db
+            - name: EXTERNAL_BILLING_HOST
+              value: billing.default.svc.cluster.local
+            - name: EXTERNAL_NOTIFICATION_HOST
+              value: notification.default.svc.cluster.local

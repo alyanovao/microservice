@@ -1,0 +1,82 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrate-job
+spec:
+  template:
+    metadata:
+      name: db-job
+      labels:
+        app: init-db-table
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: create-table
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: db-migration-cm
+                  key: database-host
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-db
+                  key: password
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: secret-db
+                  key: username
+          image: docker.io/bitnami/postgresql:14.4.0-debian-11-r13
+          command:
+            - sh
+            - "-c"
+            - |
+              PGPASSWORD=$DB_PASSWORD psql -d postgres -U $DB_USER -h $DATABASE_URL  <<'EOF'
+              CREATE USER notification WITH PASSWORD 'notification';
+              CREATE USER billing WITH PASSWORD 'billing';
+              CREATE USER orderstorage WITH PASSWORD 'orderstorage';
+              create schema notification_schema authorization notification;
+              create schema billing_schema authorization billing;
+              create schema order_storage_schema authorization orderstorage;
+              alter user notification set search_path = notification_schema;
+              alter user billing set search_path = billing_schema;
+              alter user orderstorage set search_path = order_storage_schema;
+              create table notification_schema.notifications (
+                id    serial primary key,
+                clientId BIGINT not null,
+                email varchar(30) not null,
+                message varchar(500) not null
+              );
+              alter table notification_schema.notifications owner to notification;
+              create table billing_schema.accounts(
+                id serial primary key,
+                clientId bigint not null,
+                accountToken varchar(50) not null,
+                amount NUMERIC(10, 2) not null
+              );
+              alter table billing_schema.accounts owner to billing;
+              create table order_storage_schema.users (
+                id serial primary key,
+                login varchar(30) not null,
+                email varchar(30) not null
+              );
+              alter table order_storage_schema.users owner to orderstorage;
+              create table order_storage_schema.orders (
+                id serial primary key,
+                clientId bigint not null,
+                productId bigint not null,
+                count int not null
+              );
+              alter table order_storage_schema.orders owner to orderStorage;
+              create table order_storage_schema.products (
+                id serial not null,
+                name varchar(30) not null,
+                cost numeric(10, 2) not null
+              );
+              alter table order_storage_schema.products owner to orderStorage;
+              insert into order_storage_schema.products values (1, 'Тыква', 700);
+              insert into order_storage_schema.products values (2, 'Компот', 500);
+              EOF
+  backoffLimit: 0

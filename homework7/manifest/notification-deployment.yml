@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: userservice
+  name: notification
   labels:
     app: order-microservice-app
 spec:
@@ -17,10 +17,10 @@ spec:
         app: order-microservice-app
     spec:
       containers:
-        - name: userservice
-          image: alyanovao/userservice:1.0.1
+        - name: notification
+          image: alyanovao/notificationservice:1.0.1
           ports:
-            - containerPort: 8000
+            - containerPort: 8080
           imagePullPolicy: Always
           env:
             - name: JAVA_OPTS
@@ -36,10 +36,10 @@ spec:
             - name: SPRING_DATASOURCE_HIKARI_USERNAME
               valueFrom:
                 secretKeyRef:
-                  key: username
+                  key: notification-username
                   name: secret-db
             - name: SPRING_DATASOURCE_HIKARI_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: password
+                  key: notification-password
                   name: secret-db

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: userauth
+  name: billing
   labels:
     app: order-microservice-app
 spec:
