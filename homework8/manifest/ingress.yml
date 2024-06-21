@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: notification
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: arch.homework
+      http:
+        paths:
+          - path: /notification
+            pathType: Prefix
+            backend:
+              service:
+                name: notification
+                port:
+                  number: 8803
+          - path: /billing
+            pathType: Prefix
+            backend:
+              service:
+                name: billing
+                port:
+                  number: 8804
+          - path: /orderService
+            pathType: Prefix
+            backend:
+              service:
+                name: orderservice
+                port:
+                  number: 8805
