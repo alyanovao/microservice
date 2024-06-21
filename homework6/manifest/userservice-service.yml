@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: userservice
   labels:
-    app: user-security-app
+    app: order-microservice-app
 spec:
   type: ClusterIP
   selector:
-    app: user-security-app
+    app: order-microservice-app
   ports:
     - port: 8080
       name: web
