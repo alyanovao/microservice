@@ -37,7 +37,7 @@ function init() {
 
 function getLocationByDeviceId(id) {
     $.ajax({
-        url: "/visualization/getLocationByDeviceId?deviceId=" + id,
+        url: "/api/visualization/getLocationByDeviceId?deviceId=" + id,
         type: "GET",
         success: function (response) {
             refreshByLocations(response.deviceName, response.latitude, response.longitude)
@@ -47,7 +47,7 @@ function getLocationByDeviceId(id) {
 
 function getLocations(id) {
     $.ajax({
-        url: "/visualization/getLocations?deviceId=" + id,
+        url: "/api/visualization/getLocations?deviceId=" + id,
         type: "GET",
         success: function (response) {
             refresh(response)

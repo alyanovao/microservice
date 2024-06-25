@@ -11,7 +11,7 @@ import ru.aao.visualizationservice.model.LocationResponse;
 import java.util.Arrays;
 
 @RestController
-@RequestMapping("/visualization")
+@RequestMapping("/api/visualization")
 public class QueryController
 {
     @GetMapping("/getLocationByDeviceId")
