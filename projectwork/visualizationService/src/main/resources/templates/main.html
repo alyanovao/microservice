@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Подключаем API -->
+    <!-- Подробнее https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/load-docpage/ -->
+    <script src="/webjars/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <link th:href="@{styles/editStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- Создаём контейнер для карты -->
+<div id="map" style="width: 1200px; height: 800px"></div>
+
+<div id = "form" class="text-field">
+<form id="loadYandexMap" class="col-constructor-name">
+    <label for="deviceId" class="text-field__label">Идентификатор приложения:</label>
+    <input id="deviceId" name="deviceId" type="text" class="text-field__input"/>
+    <input type="button" value="Показать текущее местоположение" onclick="getLocationByDeviceId(document.getElementById('deviceId').value)">
+    <input type="button" value="Показать список" onclick="getLocations(document.getElementById('deviceId').value)">
+</form>
+</div>
+
+<!-- Создаём карту -->
+<script type="text/javascript" th:src="@{/yandexFunctions.js}">
+</script>
+</body>
+</html>
