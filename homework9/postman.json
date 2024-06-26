@@ -1,0 +1,1198 @@
+{
+	"info": {
+		"_postman_id": "8eef2273-e009-464b-bd3d-90837d1e89cd",
+		"name": "market",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5052320"
+	},
+	"item": [
+		{
+			"name": "localhost",
+			"item": [
+				{
+					"name": "reserve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8801/store/reserve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8801",
+							"path": [
+								"store",
+								"reserve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unreserve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\": 5000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8801/store/unreserve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8801",
+							"path": [
+								"store",
+								"unreserve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delivery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"Кирова\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8802/delivery/send",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8802",
+							"path": [
+								"delivery",
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8802/billing/createAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8802",
+							"path": [
+								"billing",
+								"createAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "debitAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"accountId\": 1,\r\n    \"amount\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8804/billing/debitAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8804",
+							"path": [
+								"billing",
+								"debitAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccountnfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8804/billing/getAccountInfo?clientId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8804",
+							"path": [
+								"billing",
+								"getAccountInfo"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "creditAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"accountId\": 1,\r\n    \"amount\": 700\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8804/billing/creditAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8804",
+							"path": [
+								"billing",
+								"creditAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"domovoy175\",\r\n    \"email\": \"domovoy175@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8805/orderService/createUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8805",
+							"path": [
+								"orderService",
+								"createUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8805/orderService/getUser?clientId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8805",
+							"path": [
+								"orderService",
+								"getUser"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFingerprint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8805/orderService/get?clientId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8805",
+							"path": [
+								"orderService",
+								"get"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createOrder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"accountId\": 1,\r\n    \"productId\": 1,\r\n    \"count\": 1,\r\n    \"address\": \"Кирова\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8805/orderService/createOrder",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8805",
+							"path": [
+								"orderService",
+								"createOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrder",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"accountId\": 1,\r\n    \"productId\": 1,\r\n    \"count\": 1,\r\n    \"address\": \"тест\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8805/orderService/getOrders?clientId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8805",
+							"path": [
+								"orderService",
+								"getOrders"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sendmessage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"email\": \"domovoy175@gmail.com\",\r\n    \"message\": \"message\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8803/notification/sendmessage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8803",
+							"path": [
+								"notification",
+								"sendmessage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMessage",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"email\": \"domovoy175@gmail.com\",\r\n    \"message\": \"Hello\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8803/notification/getClientMessages?clientId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8803",
+							"path": [
+								"notification",
+								"getClientMessages"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "kubernate",
+			"item": [
+				{
+					"name": "createUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"domovoy175\",\r\n    \"email\": \"domovoy175@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseurl}}/orderService/createUser",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"orderService",
+								"createUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseurl}}/orderService/getUser?clientId=1",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"orderService",
+								"getUser"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "debitAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"accountId\": 1,\r\n    \"amount\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseurl}}/billing/debitAccount",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"billing",
+								"debitAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"accountId\": 1,\r\n    \"productId\": 1,\r\n    \"count\": 1,\r\n    \"address\": \"Кирова\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseurl}}/orderService/createOrder",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"orderService",
+								"createOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOrder",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseurl}}/orderService/getOrders?clientId=1",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"orderService",
+								"getOrders"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMssage",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"email\": \"domovoy175@gmail.com\",\r\n    \"message\": \"Hello\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseurl}}/notification/getClientMessages?clientId=1",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"notification",
+								"getClientMessages"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAccount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseurl}}/billing/getAccountInfo?clientId=1",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"billing",
+								"getAccountInfo"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test",
+			"item": [
+				{
+					"name": "Создание пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"domovoy175\",\r\n    \"email\": \"domovoy175@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseurl}}/orderService/createUser",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"orderService",
+								"createUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Проверка создания пользователя",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"setTimeout(function(){}, 1500);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Client login\", function() {\r",
+									"    const responseData = pm.response.json();\r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData).to.have.property('login', 'domovoy175');\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseurl}}/orderService/getUser?clientId=1",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"orderService",
+								"getUser"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Проверка создания счета в биллинге",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"setTimeout(function(){}, 1000);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Client login\", function() {\r",
+									"    const responseData = pm.response.json();\r",
+									"    pm.expect(_.last(responseData)).to.be.an('object');\r",
+									"    pm.expect(_.last(responseData)).to.have.property('amount', 0.00);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseurl}}/billing/getAccountInfo?clientId=1",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"billing",
+								"getAccountInfo"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Пополнение средств",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"setTimeout(function(){}, 1000);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"accountId\": 1,\r\n    \"amount\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseurl}}/billing/debitAccount",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"billing",
+								"debitAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение ключа идемпотентности",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"const fingerprint = responseData.fingerprint;\r",
+									"console.log(fingerprint);\r",
+									"pm.variables.set('fingerprint', fingerprint);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseurl}}/orderService/get?clientId=1",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"orderService",
+								"get"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создать заказ на который хватает средств",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"setTimeout(function(){}, 1000);\r",
+									"const fingerprint = pm.variables.get(\"fingerprint\");\r",
+									"console.info(fingerprint);\r",
+									"pm.request.headers.add({\r",
+									"    key: \"X-Request-ID\",\r",
+									"    value: fingerprint\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"accountId\": 1,\r\n    \"productId\": 1,\r\n    \"count\": 1,\r\n    \"address\": \"Кирова\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseurl}}/orderService/createOrder",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"orderService",
+								"createOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Повтор заказа с ключем идемпотентности",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"setTimeout(function(){}, 1000);\r",
+									"const fingerprint = pm.variables.get(\"fingerprint\");\r",
+									"console.info(fingerprint);\r",
+									"pm.request.headers.add({\r",
+									"    key: \"X-Request-ID\",\r",
+									"    value: fingerprint\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 409\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check idempotent key\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData).to.have.a.property('message', 'Ключи идемпотентности не совпадают');\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"accountId\": 1,\r\n    \"productId\": 1,\r\n    \"count\": 1,\r\n    \"address\": \"Кирова\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseurl}}/orderService/createOrder",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"orderService",
+								"createOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Проверить что средства списались",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"setTimeout(function(){}, 1000);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Transfer complete\", function() {\r",
+									"    const responseData = pm.response.json();\r",
+									"    pm.expect(_.last(responseData)).to.be.an('object');\r",
+									"    pm.expect(_.last(responseData)).to.have.property('amount', 300.00);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseurl}}/billing/getAccountInfo?clientId=1",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"billing",
+								"getAccountInfo"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Проверить отправку успешного сообщения",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"setTimeout(function(){}, 1000);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 400ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Notification delivered\", function() {\r",
+									"    const responseData = pm.response.json();\r",
+									"    pm.expect(_.last(responseData)).to.be.an('object');\r",
+									"    pm.expect((_.last(responseData))).to.have.a.property('message', 'Заказ успешно зарегистрирован');\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseurl}}/notification/getClientMessages?clientId=1",
+							"protocol": "http",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"notification",
+								"getClientMessages"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "arch.homework"
+		}
+	]
+}
