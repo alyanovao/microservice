@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification
+  labels:
+    app: order-microservice-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-microservice-app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: order-microservice-app
+        service: notification
+    spec:
+      containers:
+        - name: notification
+          image: alyanovao/notificationservice:1.0.1
+          ports:
+            - containerPort: 8803
+          imagePullPolicy: Always
+          env:
+            - name: JAVA_OPTS
+              valueFrom:
+                configMapKeyRef:
+                  name: order-microservice-app-configmap
+                  key: java-opts
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: datasource-url
+                  name: order-microservice-app-configmap
+            - name: SPRING_DATASOURCE_HIKARI_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: notification-username
+                  name: secret-db
+            - name: SPRING_DATASOURCE_HIKARI_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: notification-password
+                  name: secret-db
