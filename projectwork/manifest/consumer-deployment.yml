@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer-microservice
+  labels:
+    app: microservice-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservice-app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: microservice-app
+        service: consumerService
+    spec:
+      containers:
+        - name: consumer-deployment
+          image: alyanovao/consumerservice:1.0.0
+          ports:
+            - containerPort: 8101
+          imagePullPolicy: Always
+          env:
+            - name: JAVA_OPTS
+              valueFrom:
+                configMapKeyRef:
+                  name: microservice-app-configmap
+                  key: java-opts
+            - name: CAMEL_COMPONENT_KAFKA_BROKERS
+              valueFrom:
+                configMapKeyRef:
+                  key: kafka-broker
+                  name: microservice-app-configmap
+            - name: KAFKA_CONSUMER_TOPIC
+              valueFrom:
+                configMapKeyRef:
+                  key: kafka-topic
+                  name: microservice-app-configmap
+            - name: SPRING_DATA_MONGODB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: datasource-host
+                  name: microservice-app-configmap
+            - name: SPRING_DATA_MONGODB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: datasource-port
+                  name: microservice-app-configmap
+            - name: SPRING_DATA_MONGODB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  key: datasource-name
+                  name: microservice-app-configmap

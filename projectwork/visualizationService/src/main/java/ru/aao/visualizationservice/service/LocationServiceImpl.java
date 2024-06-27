@@ -27,7 +27,7 @@ public class LocationServiceImpl implements LocationService {
     @Override
     public Location findById(Long id) {
         var res = locationRepository.findAllByClientId(id);
-        return res.stream().max(Comparator.comparingLong(Location::getClientId)).orElseThrow(() -> new ApplicationException("Данные не найдены"));
+        return res.stream().max(Comparator.comparingLong(Location::getTimestamp)).orElseThrow(() -> new ApplicationException("Данные не найдены"));
     }
 
     @Override

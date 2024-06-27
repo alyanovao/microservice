@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: microservice-app-configmap
+  labels:
+    app: microservice-app-configmap
+data:
+  java-opts: "-Xms128m-Xmx128m"
+  datasource-host: "localhost"
+  datasource-port: "27017"
+  datasource-name: "mongoDB"
+  kafka-broker: "host.docker.internal:9092"
+  kafka-topic: "locationTopic"

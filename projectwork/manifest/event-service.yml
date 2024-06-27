@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eventservice
+  labels:
+    app: microservice-app
+spec:
+  type: ClusterIP
+  selector:
+    service: eventService
+  ports:
+    - port: 8100
+      name: web
+      protocol: TCP
+      targetPort: 8100
