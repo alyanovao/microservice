@@ -15,4 +15,5 @@ public class Constant {
     public static final String OPERATION_NAME = NAMEPROJECT + "OperationName"; 		        // Название метода/операции сервиса
     public static final String REST_REQUEST = NAMEPROJECT + "RestRequestBody"; 		        // Объект класса для request запроса веб-сервиса
     public static final String REST_RESPONSE = NAMEPROJECT + "RestResponseBody"; 	        // Объект класса для response запроса веб-сервиса
+    public static final String ORIGINAL_BODY = "OriginalBody";
 }
