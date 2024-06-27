@@ -1,19 +1,13 @@
-package ru.aao.visualizationservice.model;
+package ru.aao.consumerservice.domain;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
 @ToString
-@Document
 @NoArgsConstructor
 @AllArgsConstructor
 public class Location {
-
-    @Id
-    private String id;
 
     private Long clientId;
 
