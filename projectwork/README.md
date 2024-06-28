@@ -87,6 +87,10 @@ minikube tunnel
 ```
 
 ```shell
+k apply -f ./manifest/kafka.yml
+```
+
+```shell
 k apply -f ./manifest
 ```
 

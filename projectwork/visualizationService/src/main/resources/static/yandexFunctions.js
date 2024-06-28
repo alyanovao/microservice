@@ -77,7 +77,6 @@ function refreshByLocations(deviceName, latitude, longitude) {
 
 function refresh(response) {
     response.locations.forEach(function(location) {
-        allert(location.latitude);
         // Добавление метки
         // https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Placemark-docpage/
         var myPlacemark= new ymaps.Placemark([location.latitude, location.longitude], {
