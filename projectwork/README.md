@@ -2,11 +2,11 @@
 
 В данной работе планирую реализовать подход CQRS и Event Sourcing
 
+![service.png](service.png)
 Состав сервисов:
-eventService - принимает запрос по http и регистрирует событие в kafka
-consumerService - читает сообщение из очереди и регистрирует в бд MondoDB
-visualizationService - читает данные из хранилища и отражает на карте
-
+eventService - принимает запрос по http и регистрирует событие в kafka<br>
+consumerService - читает сообщение из очереди и регистрирует в бд MondoDB<br>
+visualizationService - читает данные из хранилища и отражает на карте<br>
 Для данного проекта используется функционал яндекс карт<br>
 Скрин работы приложения
 ![img.png](img.png)
