@@ -7,6 +7,8 @@ visualizationService - читает данные из хранилища и от
 
 Для данного проекта используется функционал яндекс карт
 Использую kafka без zookeeper
+![img.png](img.png)
+![img_1.png](img_1.png)
 
 # Сборка проекта
 ```shell
