@@ -6,8 +6,8 @@ metadata:
     app: microservice-app-configmap
 data:
   java-opts: "-Xms128m-Xmx128m"
-  datasource-host: "localhost"
+  datasource-host: "host.minikube.internal"
   datasource-port: "27017"
   datasource-name: "mongoDB"
-  kafka-broker: "host.docker.internal:9092"
+  kafka-broker: "kafka-0.kafka.kafka-ca1.svc.cluster.local:9092,kafka-1.kafka.kafka-ca1.svc.cluster.local:9092,kafka-2.kafka.kafka-ca1.svc.cluster.local:9092"
   kafka-topic: "locationTopic"

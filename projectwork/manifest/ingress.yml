@@ -15,3 +15,10 @@ spec:
                 name: eventservice
                 port:
                   number: 8100
+          - path: /visualization
+            pathType: Prefix
+            backend:
+              service:
+                name: visualizationservice
+                port:
+                  number: 8080

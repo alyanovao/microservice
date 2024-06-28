@@ -52,7 +52,7 @@ docker push alyanovao/eventservice:1.0.0
 docker push alyanovao/visualizationservice:1.0.0
 ```
 
-Запуск kafka
+Запуск kafka - не нужно, вынес в manifest
 ```shell
 docker-compose -p broker -f docker/docker-compose.yml up -d
 ```
@@ -64,9 +64,13 @@ https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/
 ```shell
 New-Alias -Name "k" kubectl
 ```
-
+ 
 ```shell
 minikube addons enable ingress
+```
+
+```shell
+minikube tunnel
 ```
 
 ```shell
