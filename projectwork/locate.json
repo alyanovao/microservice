@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "b3cc9cd6-8519-458b-bcfc-4081b31f3491",
+		"name": "locate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5052320"
+	},
+	"item": [
+		{
+			"name": "presentation",
+			"item": [
+				{
+					"name": "event 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"clientId\": 537453,\r\n\t\"timestamp\": 1681416227,\r\n\t\"latitude\": 45.042929,\r\n\t\"longitude\": 39.027885,\r\n\t\"speed\": 0.1512450356168747,\r\n\t\"bearing\": 0.0,\r\n\t\"altitude\": 48.400001525878906,\r\n\t\"accuracy\": 15.184000015258789,\r\n\t\"batteryLevel\":76.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://arch.homework/event/api/location",
+							"protocol": "http",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"event",
+								"api",
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"clientId\": 537453,\r\n\t\"timestamp\": 1681416228,\r\n\t\"latitude\": 45.042618,\r\n\t\"longitude\": 39.030271,\r\n\t\"speed\": 0.1512450356168747,\r\n\t\"bearing\": 0.0,\r\n\t\"altitude\": 48.400001525878906,\r\n\t\"accuracy\": 15.184000015258789,\r\n\t\"batteryLevel\":76.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://arch.homework/event/api/location",
+							"protocol": "http",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"event",
+								"api",
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"clientId\": 537453,\r\n\t\"timestamp\": 1681416229,\r\n\t\"latitude\": 45.041802,\r\n\t\"longitude\": 39.031602,\r\n\t\"speed\": 0.1512450356168747,\r\n\t\"bearing\": 0.0,\r\n\t\"altitude\": 48.400001525878906,\r\n\t\"accuracy\": 15.184000015258789,\r\n\t\"batteryLevel\":76.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://arch.homework/event/api/location",
+							"protocol": "http",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"event",
+								"api",
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event 4",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"clientId\": 537453,\r\n\t\"timestamp\": 1681416230,\r\n\t\"latitude\": 45.042503,\r\n\t\"longitude\": 39.034021,\r\n\t\"speed\": 0.1512450356168747,\r\n\t\"bearing\": 0.0,\r\n\t\"altitude\": 48.400001525878906,\r\n\t\"accuracy\": 15.184000015258789,\r\n\t\"batteryLevel\":76.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://arch.homework/event/api/location",
+							"protocol": "http",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"event",
+								"api",
+								"location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "event 5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"clientId\": 537453,\r\n\t\"timestamp\": 1681416236,\r\n\t\"latitude\": 45.042748,\r\n\t\"longitude\": 39.034777,\r\n\t\"speed\": 0.1512450356168747,\r\n\t\"bearing\": 0.0,\r\n\t\"altitude\": 48.400001525878906,\r\n\t\"accuracy\": 15.184000015258789,\r\n\t\"batteryLevel\":76.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://arch.homework/event/api/location",
+							"protocol": "http",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"event",
+								"api",
+								"location"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

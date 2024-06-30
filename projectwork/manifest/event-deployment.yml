@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-microservice
+  labels:
+    app: microservice-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservice-app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: microservice-app
+        service: eventService
+    spec:
+      containers:
+        - name: event-deploymnet
+          image: alyanovao/eventservice:1.0.0
+          ports:
+            - containerPort: 8100
+          imagePullPolicy: Always
+          env:
+            - name: JAVA_OPTS
+              valueFrom:
+                configMapKeyRef:
+                  name: microservice-app-configmap
+                  key: java-opts
+            - name: CAMEL_COMPONENT_KAFKA_BROKERS
+              valueFrom:
+                configMapKeyRef:
+                  key: kafka-broker
+                  name: microservice-app-configmap
+            - name: KAFKA_PRODUCER_TOPIC
+              valueFrom:
+                configMapKeyRef:
+                  key: kafka-topic
+                  name: microservice-app-configmap

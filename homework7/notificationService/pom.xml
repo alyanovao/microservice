@@ -11,7 +11,7 @@
 
     <groupId>ru.aao</groupId>
     <artifactId>notificationService</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>notificationService</name>
     <description>notificationService</description>
 
